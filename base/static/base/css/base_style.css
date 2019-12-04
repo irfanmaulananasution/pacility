@@ -1,0 +1,129 @@
+* {
+	scroll-behavior: smooth;
+}
+
+.navbar-nav {
+	padding: 0 0.5rem;
+}
+
+.navbar-brand {
+	padding-left: 0.5rem;
+	font-family: "Rufina";
+	font-size: 24px;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.navbar-custom {
+    background-color: #303C6C;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #FFFFFF;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.navbar-custom .navbar-nav .nav-link:active,
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #FBE8A6;
+}
+
+.navbar-custom .navbar-toggler {
+	border-color: #FFFFFF;
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='1.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.nav-link {
+	margin-left: 1.5rem;
+	font-family: "Raleway";
+	font-size: 18px;
+}
+
+footer {
+	background-color: #303C6C;
+	padding: 1.5rem 1rem 1.5rem;
+}
+
+.list-inline-item {
+	padding: 2rem 3rem 0rem;
+}
+
+.img-contact {
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+}
+
+.contact-text {
+	display: inline;
+	font-family: "Rufina";
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+#footer-divider {
+	display: block;
+	width: 100%;
+	margin: 3rem auto 1.5rem;
+	border-top: 1px solid #FFFFFF;
+}
+
+.copyright {
+	font-family: "Oswald";
+	color: #FFFFFF;
+	font-size: 16px;
+}
+
+.content-div {
+	padding: 40px 10%;
+	background-color: #FBE8A6;
+}
+
+.section-title {
+	font-family: "Raleway";
+	font-weight: 800;
+	font-size: 48px;
+	color: #303C6C;
+	margin-bottom: 30px;
+}
+
+@media (max-width: 576px){
+	.nav-link {
+		margin-left: 0rem;
+	}
+
+	.list-inline-item {
+		display: block;
+		padding: 1rem;
+	}
+
+	.contact-text {
+		display: block;
+		padding-top: 0.25rem;
+	}
+
+	#footer-divider {
+		margin-top: 1rem;
+	}
+
+	.content-div {
+		padding: 40px 7%;
+	}
+
+	.section-title {
+		font-size: 28px;
+		text-align: center;
+	}
+}
+
+
+
+

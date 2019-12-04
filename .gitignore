@@ -1,0 +1,6 @@
+.coverage
+.gitignore
+env/
+__pycache__/
+chromedriver.exe
+db.sqlite3
