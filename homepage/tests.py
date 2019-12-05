@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import resolve
-from .views import index
+from .views import index, add_announcement
 from .models import Announcement
 from .forms import AnnouncementForm
 
@@ -43,6 +43,18 @@ class AnnouncementTestCase(TestCase):
 
 	def test_using_homepage_template(self):
 		response = self.client.get('/')
+		self.assertTemplateUsed(response, 'homepage/homepage.html')
+
+	def test_url_add_announcement_exists(self):
+		response = self.client.post("/add_announcement", data = {'username': 'username', 'title': 'announcement title', 'content': 'announcement content'})
+		self.assertEqual(response.status_code, 302)
+
+	def test_using_add_announcement_function(self):
+		found = resolve("/add_announcement")
+		self.assertEqual(found.func, add_announcement)
+
+	def test_redirect_to_index(self):
+		response = self.client.post("/add_announcement", data = {'username': 'username', 'title': 'announcement title', 'content': 'announcement content'}, follow=True)
 		self.assertTemplateUsed(response, 'homepage/homepage.html')
 
 	def test_announcement_count(self):
