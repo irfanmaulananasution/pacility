@@ -101,3 +101,9 @@ class AnnouncementTestCase(TestCase):
 		announcement = Announcement.objects.create(username = username, initial = initial, title = title, content = content, date = date, time = time)
 		self.assertFalse(announcement.is_valid_announcement())
 
+	def test_announcement_string_representation(self):
+		announcement1 = Announcement.objects.get(id=1)
+		announcement2 = Announcement.objects.get(id=2)
+
+		self.assertEqual(str(announcement1), f"{announcement1.date} - {announcement1.title}")
+		self.assertEqual(str(announcement2), f"{announcement2.date} - {announcement2.title}")
