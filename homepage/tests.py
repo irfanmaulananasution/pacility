@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import resolve
 from .views import index
 from .models import Announcement
+from .forms import AnnouncementForm
 
 class AnnouncementTestCase(TestCase):
 	def setUp(self):
@@ -30,6 +31,16 @@ class AnnouncementTestCase(TestCase):
 		found = resolve('/')
 		self.assertEqual(found.func, index)
 
+	def test_form_in_context(self):
+		response = self.client.get('/')
+		form = response.context['form']
+		self.assertIsInstance(form, AnnouncementForm)
+
+	def test_announcements_in_context(self):
+		response = self.client.get('/')
+		form = response.context['announcements'].get(id=1)
+		self.assertIsInstance(form, Announcement)
+
 	def test_using_homepage_template(self):
 		response = self.client.get('/')
 		self.assertTemplateUsed(response, 'homepage/homepage.html')
@@ -44,7 +55,7 @@ class AnnouncementTestCase(TestCase):
 
 		self.assertTrue(announcement1.is_valid_announcement())
 		self.assertTrue(announcement2.is_valid_announcement())
-	
+
 	def test_invalid_username(self):
 		username = "floccinaucinihilipilification"
 		initial = "F"
