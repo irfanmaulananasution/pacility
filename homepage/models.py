@@ -15,3 +15,7 @@ class Announcement(models.Model):
 		content_valid = len(self.content) > 0
 
 		return username_valid and initial_valid and title_valid and content_valid
+
+	
+	def __str__(self):
+		return f"{self.date} - {self.title}"
