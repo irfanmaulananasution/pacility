@@ -12,7 +12,7 @@ class PacilityFunctionalTest(TestCase):
 		chrome_options.add_argument('--headless')
 		chrome_options.add_argument('disable-gpu')
 
-		self.selenium  = webdriver.Chrome(chrome_options=chrome_options, executable_path="base/chrome_77_driver/chromedriver")
+		self.selenium  = webdriver.Chrome(chrome_options=chrome_options)
 		super(PacilityFunctionalTest, self).setUp()
 
 	def tearDown(self):
