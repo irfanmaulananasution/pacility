@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
@@ -6,13 +6,14 @@ import time
 #self.browser = webdriver.Chrome(chrome_options=options, executable_path="base/chrome_77_driver/chromedriver")
 class PacilityFunctionalTest(TestCase):
 	def setUp(self):
+		self.client = Client()
 		chrome_options = Options()
 		chrome_options.add_argument('--dns-prefetch-disable')
 		chrome_options.add_argument('--no-sandbox')
 		chrome_options.add_argument('--headless')
 		chrome_options.add_argument('disable-gpu')
 
-		self.selenium  = webdriver.Chrome(chrome_options=chrome_options)
+		self.selenium  = webdriver.Chrome(chrome_options = chrome_options)
 		super(PacilityFunctionalTest, self).setUp()
 
 	def tearDown(self):
@@ -20,17 +21,17 @@ class PacilityFunctionalTest(TestCase):
 		super(PacilityFunctionalTest, self).tearDown()
 
 	def test_functionality(self):
-		selenium = self.selenium
-		selenium.get('pacility.herokuapp.com/')
+		# selenium = self.selenium
+		self.selenium.get('pacility.herokuapp.com/')
 		time.sleep(3)
 
-		selenium.execute_script("window.scrollTo(0, 500)")
+		self.selenium.execute_script("window.scrollTo(0, 500)")
 		time.sleep(3)
 
-		username = selenium.find_element_by_id('id_username')
-		title = selenium.find_element_by_id('id_title')
-		content = selenium.find_element_by_id('id_content')
-		button1 = selenium.find_element_by_class_name('btn-submit')
+		username = self.selenium.find_element_by_id('id_username')
+		title = self.selenium.find_element_by_id('id_title')
+		content = self.selenium.find_element_by_id('id_content')
+		button1 = self.selenium.find_element_by_class_name('btn-submit')
 
 		username.send_keys('tsqfnfl')
 		time.sleep(3)
@@ -41,21 +42,21 @@ class PacilityFunctionalTest(TestCase):
 		button1.click()
 		time.sleep(3)
 
-		selenium.execute_script("window.scrollTo(0, 500)")
+		self.selenium.execute_script("window.scrollTo(0, 500)")
 		time.sleep(1)
-		selenium.execute_script("window.scrollTo(500, 900)")
+		self.selenium.execute_script("window.scrollTo(500, 900)")
 		time.sleep(3)
 
-		form_nav = selenium.find_element_by_id('nav-form')
+		form_nav = self.selenium.find_element_by_id('nav-form')
 		form_nav.click()
 		time.sleep(3)
 
-		title = selenium.find_element_by_id('id_form_title')
-		location = selenium.find_element_by_id('id_location')
-		time_input = selenium.find_element_by_id('id_time')
-		category = selenium.find_element_by_id('id_category')
-		description = selenium.find_element_by_id('id_description')
-		button2 = selenium.find_element_by_class_name('btn-submit')
+		title = self.selenium.find_element_by_id('id_form_title')
+		location = self.selenium.find_element_by_id('id_location')
+		time_input = self.selenium.find_element_by_id('id_time')
+		category = self.selenium.find_element_by_id('id_category')
+		description = self.selenium.find_element_by_id('id_description')
+		button2 = self.selenium.find_element_by_class_name('btn-submit')
 
 		title.send_keys('Kerusakan Meja Kantin')
 		time.sleep(3)
