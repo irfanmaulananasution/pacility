@@ -1,0 +1,57 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'report_form/css/form_style.css' %}">
+{% endblock %}
+
+{% block title %}
+Form
+{% endblock %}
+
+{% block body %}
+
+{% include 'base/navbar.html' %}
+
+<div class="content-div">
+    <p class="section-title">REPORT FORM</p>
+    <form action="{% url 'report_form:add_report' %}" method="POST" id="report_form-form">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="form-group col-sm-8">
+                {{ form.form_title }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-sm-8">
+                {{ form.location }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-sm-8">
+                {{ form.time }}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-sm-8">
+                {{ form.category }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-sm-12">
+                {{ form.description }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-sm-12">
+                <input class="form-group btn-submit float-right" type="submit" value="Report">
+            </div>
+        </div>
+    </form>
+</div>
+
+{% include 'base/footer.html' %}
+{% endblock %}

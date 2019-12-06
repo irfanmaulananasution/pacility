@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
     'homepage.apps.HomepageConfig',
+    'report_form.apps.ReportFormConfig',
 ]
 
 MIDDLEWARE = [

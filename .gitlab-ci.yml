@@ -23,6 +23,7 @@ UnitTest:
   when: on_success
   script:
     - coverage run --include='homepage/*' manage.py test
+    - coverage run -a --include='report_form/*' manage.py test
     - coverage report -m
 
 Deployment:
