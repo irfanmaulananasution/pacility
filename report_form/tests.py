@@ -3,7 +3,7 @@ from .models import Report
 from django.test.client import Client
 
 class ReportTestCase(TestCase):
-	def SetUp(self):
+	def setUp(self):
 		title1 = "kamar mandi rusak"
 		location1 = "balairung"
 		time1 = "10:35"
