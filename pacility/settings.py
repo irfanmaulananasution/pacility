@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
     'report_form.apps.ReportFormConfig',
     'report_list.apps.ReportListConfig',
+	'testimony'
 ]
 
 MIDDLEWARE = [
