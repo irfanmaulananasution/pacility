@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'homepage.apps.HomepageConfig',
     'report_form.apps.ReportFormConfig',
+    'report_list.apps.ReportListConfig',
 ]
 
 MIDDLEWARE = [
