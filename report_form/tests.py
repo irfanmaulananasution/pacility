@@ -3,21 +3,21 @@ from .models import Report
 from django.test.client import Client
 
 class ReportTestCase(TestCase):
-	def setUp(self):
-		title1 = "kamar mandi rusak"
-		location1 = "balairung"
-		time1 = "10:35"
-		category1 = "kerusakan"
-		description1 = "pintu kamar mandinya gabisa ditutup heu"
+	# def SetUp(self):
+	# 	title1 = "kamar mandi rusak"
+	# 	location1 = "balairung"
+	# 	time1 = "10:35"
+	# 	category1 = "kerusakan"
+	# 	description1 = "pintu kamar mandinya gabisa ditutup heu"
 
-		title2 = "kerusakan di pusgiwa"
-		location2 = "pusgiwahjjdkdf"
-		time2 = "05:11"
-		category2 = "sdffdjfsdghshsdj"
-		description2 = "jhajads djsfkjsdfksbdf jsdfkjsjdkfs ksdjfkjsdf"
+	# 	title2 = "kerusakan di pusgiwa"
+	# 	location2 = "pusgiwahjjdkdf"
+	# 	time2 = "05:11"
+	# 	category2 = "sdffdjfsdghshsdj"
+	# 	description2 = "jhajads djsfkjsdfksbdf jsdfkjsjdkfs ksdjfkjsdf"
 
-		Report.objects.create(form_title = title1, location = location1, time = time1, category = category1, description = description1)
-		Report.objects.create(form_title = title2, location = location2, time = time2, category = category2, description = description2)
+	# 	Report.objects.create(form_title = title1, location = location1, time = time1, category = category1, description = description1)
+	# 	Report.objects.create(form_title = title2, location = location2, time = time2, category = category2, description = description2)
 
 	def test_invalid_title(self):
 		title = "Reportjadsjdasjkdasjkkajbsdbasddadajdasjkad abjsdjbabjasd jasdjjasdjadsasjdkjbasdjbadsjajskdasjkdasjajhdasjabdjadsjbasdk"

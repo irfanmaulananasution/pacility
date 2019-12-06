@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block title %}
-Form
+    Form
 {% endblock %}
 
 {% block body %}
@@ -15,7 +15,7 @@ Form
 
 <div class="content-div">
     <p class="section-title">REPORT FORM</p>
-    <form action="{% url 'report_form:add_report' %}" method="POST" id="report_form-form">
+    <form method="POST" id="report_form-form">
         {% csrf_token %}
 
         <div class="form-row">
