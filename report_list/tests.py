@@ -7,3 +7,13 @@ class TestReportList(TestCase):
         response = self.client.get('')
         self.assertEquals(response.status_code, 200)
 
+    def test_page_dont_exist(self):
+        response = self.client.get('/unavailable')
+        self.assertEquals(response.status_code, 404)
+
+    def test_if_index_used_the_right_template(self):
+        response = Client().get('/reports/')
+        self.assertTemplateUsed(response, 'report_list/report_list.html')
+
+    
+
