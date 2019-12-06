@@ -25,6 +25,7 @@ UnitTest:
     - coverage run --include='homepage/*' manage.py test
     - coverage run -a --include='report_form/*' manage.py test
     - coverage run -a --include='report_list/*' manage.py test
+    - coverage run -a --include='testimony/*' manage.py test
     - coverage report -m
 
 Deployment:
