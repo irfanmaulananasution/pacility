@@ -89,44 +89,24 @@ class TestimonyTest(TestCase):
         response = Client().get('/testimony/')
         self.assertTemplateUsed(response, 'testimony.html')
 
-    def test_add_testimony(self):
-        form_data = {
-            'username': 'joko',
-            'title': 'test',
-            'content' : 'test content'
-        }
-        response = Client().post("testimony/add_testimony", data=form_data)
-        self.assertEqual(response.status_code, 302)
-
 	#2 template ini bakal di tampilin dengan 1 url tapi ada if di views nya
-    def test_refresh_exist_in_non_authenticated_user(self):
-        response = Client().get('/testimony/')
-        self.assertIn('<input id="refresh"', response.content.decode())
-		
-    def test_refresh_exist_in_authenticated_user(self):
-        c = Client()
-        c.login(username='temporary', password='temporary')
-		
-        response = c.get('/testimony/')
-        self.assertIn('<input id="refresh"', response.content.decode())
-
     def test_testimony_showed_for_non_authenticated_user(self):
         response = Client().get('/testimony/')
-        self.assertIn('<div class="testimony_list', response.content.decode())
+        self.assertIn('<div class="testimony-content"', response.content.decode())
 		
     def test_testimony_showed_for_authenticated_user(self):
         c = Client()
         c.login(username='temporary', password='temporary')
 		
         response = c.get('/testimony/')
-        self.assertIn('<div class="testimony_list', response.content.decode())
+        self.assertIn('<div class="testimony-content"', response.content.decode())
 
     def test_authenticated_user_template(self):
         c = Client()
         c.login(username='temporary', password='temporary')
 
         response = Client().get('/testimony/')
-        self.assertTemplateUsed(response, 'testimonyUser.html')
+        self.assertTemplateUsed(response, 'testimony.html')
 
     def test_authenticated_user_template_have_testify_button(self):
         c = Client()
