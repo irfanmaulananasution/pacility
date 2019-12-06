@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 
+#self.browser = webdriver.Chrome(chrome_options=options, executable_path="base/chrome_77_driver/chromedriver")
 class PacilityFunctionalTest(TestCase):
 	def setUp(self):
 		chrome_options = Options()
@@ -11,7 +12,7 @@ class PacilityFunctionalTest(TestCase):
 		chrome_options.add_argument('--headless')
 		chrome_options.add_argument('disable-gpu')
 
-		self.selenium  = webdriver.Chrome('./chromedriver', chrome_options=chrome_options)
+		self.selenium  = webdriver.Chrome(chrome_options=chrome_options, executable_path="base/chrome_77_driver/chromedriver")
 		super(PacilityFunctionalTest, self).setUp()
 
 	def tearDown(self):
@@ -20,7 +21,7 @@ class PacilityFunctionalTest(TestCase):
 
 	def test_functionality(self):
 		selenium = self.selenium
-		selenium.get('http://127.0.0.1:8000/report_form')
+		selenium.get('pacility.herokuapp.com/')
 		time.sleep(3)
 
 		selenium.execute_script("window.scrollTo(0, 500)")
