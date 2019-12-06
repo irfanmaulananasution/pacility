@@ -12,7 +12,7 @@ class TestReportList(TestCase):
         self.assertEquals(response.status_code, 404)
 
     def test_if_index_used_the_right_template(self):
-        response = Client().get('/reports/')
+        response = Client().get('/report_list/')
         self.assertTemplateUsed(response, 'report_list/report_list.html')
 
     
