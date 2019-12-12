@@ -15,3 +15,7 @@ def login_view(request):
 		return HttpResponse('Not Found')
 
 	return HttpResponseRedirect(reverse('homepage:index'))
+
+def logout_view(request):
+	logout(request)
+	return HttpResponseRedirect(reverse('homepage:index'))
