@@ -15,6 +15,7 @@ Form
 
 <div class="content-div">
     <p class="section-title">REPORT FORM</p>
+
     <form action="{% url 'report_form:add_report' %}" method="POST" id="report_form-form">
         {% csrf_token %}
 
