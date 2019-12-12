@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import resolve
-from .views import login_view
+from .views import login_view, logout_view
 from django.contrib.auth.models import User
 
 class BaseTestCase(TestCase):
@@ -32,3 +32,15 @@ class BaseTestCase(TestCase):
 	def test_using_login_view_function(self):
 		found = resolve('/base/login')
 		self.assertEqual(found.func, login_view)
+
+	def test_url_logout_exists(self):
+		response = self.client.get('/base/logout')
+		self.assertEqual(response.status_code, 302)
+
+	def test_using_logout_view_function(self):
+		found = resolve('/base/logout')
+		self.assertEqual(found.func, logout_view)
+
+	def test_logout_using_homepage_template(self):
+		response = self.client.get('/base/logout', follow=True)
+		self.assertTemplateUsed(response, 'homepage/homepage.html')
