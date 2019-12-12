@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import resolve
-from .views import login_view, logout_view
+from .views import login_view, logout_view, register
 from django.contrib.auth.models import User
 
 class BaseTestCase(TestCase):
@@ -43,4 +43,20 @@ class BaseTestCase(TestCase):
 
 	def test_logout_using_homepage_template(self):
 		response = self.client.get('/base/logout', follow=True)
+		self.assertTemplateUsed(response, 'homepage/homepage.html')
+
+	def test_url_register_if_get_method(self):
+		response = self.client.get('/base/register')
+		self.assertEqual(response.status_code, 302)
+
+	def test_url_register_if_post_method(self):
+		response = self.client.post('/base/register', data={'first_name': 'Ian', 'last_name': 'Donnelly', 'username': 'ian.donnelly', 'email': 'iandonnelly@arrival.com', 'password': 'arrival'})
+		self.assertEqual(response.status_code, 302)
+
+	def test_using_register_view_function(self):
+		found = resolve('/base/register')
+		self.assertEqual(found.func, register)
+
+	def test_register_using_homepage_template(self):
+		response = self.client.post('/base/register', data={'first_name': 'Ian', 'last_name': 'Donnelly', 'username': 'ian.donnelly', 'email': 'iandonnelly@arrival.com', 'password': 'theoreticalphysicist'}, follow=True)
 		self.assertTemplateUsed(response, 'homepage/homepage.html')
