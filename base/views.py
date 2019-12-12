@@ -19,3 +19,19 @@ def login_view(request):
 def logout_view(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('homepage:index'))
+
+def register(request):
+	if request.method == "POST":
+		first_name = request.POST["first_name"]
+		last_name = request.POST["last_name"]
+		username = request.POST["username"]
+		email = request.POST["email"]
+		password = request.POST["password"]
+		new_user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
+		new_user.save()
+
+		user = authenticate(request, username=username, password=password)
+		login(request, user)
+		return HttpResponseRedirect(reverse('homepage:index'))
+
+	return HttpResponseRedirect(reverse('homepage:index'))
