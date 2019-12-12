@@ -4,6 +4,7 @@ class TestimonyForm(forms.Form):
 	username_attrs = {
 		'placeholder': 'Username',
 		'class': 'form-control',
+		'readonly' : 'readonly',
 	}
 
 	title_attrs = {
