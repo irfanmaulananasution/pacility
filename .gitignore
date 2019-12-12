@@ -6,3 +6,7 @@ chromedriver.exe
 db.sqlite3
 htmlcov/
 *.DS_Store
+pycache__/__init__.cpython-37.pyc
+__pycache__/tests.cpython-37.pyc
+migrations/__pycache__/__init__.cpython-37.pyc
+__pycache__/__init__.cpython-37.pyc
