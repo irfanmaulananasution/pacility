@@ -22,7 +22,7 @@
 <div class="content-div">
     <details ontoggle="myFunction()">
     <summary id="section-title" class="section-title" onmousedown="mouseDown()" onmouseup="mouseUp()" style="list-style: none;">REPORT FORM</summary>
-    <p style= "text-decoration-style: wavy;"> let us know your complaint</p>
+    <p style= "font-family: Raleway;"> let us know your complaint</p>
     </details>
     <form action="{% url 'report_form:add_report_service' %}" method="POST" id="report_form-form">
         {% csrf_token %}
@@ -56,7 +56,7 @@
 
         <div class="form-row">
             <div class="form-group col-sm-12">
-                <input class="form-group btn-submit float-right" value="Report" onclick="post_report()">
+                <input class="form-group btn-submit float-right" value="Report" onclick="post_report()" style="width: 7.8%"; style="text-align: center;" >
             </div>
         </div>
     </form>

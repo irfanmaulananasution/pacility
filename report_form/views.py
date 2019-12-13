@@ -16,8 +16,8 @@ def index(request):
     return render(request, 'report_form/report_form.html', {'form': form, 'reports': reports})
 
 def add_report(request):
-    form = ReportForm()
-    reports = Report.objects.all()
+    # form = ReportForm()
+    # reports = Report.objects.all()
     if(request.method == 'POST'):
         logging.getLogger(__name__).debug("gagaggaa")
         form = ReportForm(request.POST)
