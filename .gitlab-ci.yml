@@ -22,8 +22,10 @@ UnitTest:
     - python manage.py runserver 8000 &
   when: on_success
   script:
-    - coverage run --include='base*/' manage.py test
-    # - coverage run -a --include='[APP_NAME]/*' manage.py test
+    - coverage run --include='homepage/*' manage.py test
+    - coverage run -a --include='report_form/*' manage.py test
+    - coverage run -a --include='report_list/*' manage.py test
+    - coverage run -a --include='testimony/*' manage.py test
     - coverage report -m
 
 Deployment:

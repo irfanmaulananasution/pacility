@@ -1,0 +1,136 @@
+#brand-div {
+	width: 100%;
+	height: 92vh;
+	background-color: #FAB76E;
+}
+
+#brand-title {
+	color: #303C6C;
+	font-family: "Rufina";
+	font-size: 108px;
+	font-weight: 700;
+	line-height: 100%;
+}
+
+#brand-description {
+	color: #303C6C;
+	font-family: "Raleway";
+	font-size: 32px;
+	font-weight: 500;
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-control {
+	border-radius: 0;
+	border-style: none;
+}
+
+textarea {
+	resize: none;
+}
+
+.btn-submit {
+	color: #FFFFFF;
+	font-family: 'Raleway';
+	font-weight: 500;
+	background-color: #303C6C;
+	border-radius: 1rem;
+	padding: 5px 20px;
+	border-style: none;
+}
+
+.btn-submit:hover,
+.btn-submit:active {
+	color: #303C6C;
+	background-color: #F4976C;
+}
+
+.initial-profile {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	min-width: 50px;
+	border-radius: 50%;
+	padding: 10px;
+	color: #FFFFFF;
+	background-color: #FAB76E;
+	text-align: center;
+	font-family: 'Raleway';
+	font-weight: 800;
+	font-size: 20px;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+.testimony-div {
+	padding: 5%;
+	margin: 30px auto;
+}
+
+.testimony-detail {
+	padding: 2px;
+	margin-left: 15px;
+	display: inline-block;
+}
+
+.testimony-title {
+	color: #303C6C;
+	font-family: 'Raleway';
+	font-weight: 800;
+	font-size: 20px;
+	line-height: 24px;
+	margin-bottom: 5px;
+}
+
+.testimony-time {
+	color: #000000;
+	font-family: 'Raleway';
+	font-size: 14px;
+}
+
+.testimony-author {
+	color: #303C6C;
+	font-family: 'Raleway';
+	font-weight: 500;
+}
+
+.testimony-content {
+	text-align: justify;
+	font-family: 'Raleway';
+	font-size: 14px;
+}
+
+::-webkit-input-placeholder {
+ 	font-family: 'Raleway';
+}
+
+:-moz-placholder {
+	font-family: 'Raleway';	
+}
+
+::-moz-placeholder {
+	font-family: 'Raleway';
+}
+
+:-ms-input-placeholder {
+	font-family: 'Raleway';
+}
+
+@media (max-width: 576px){
+	#brand-title {
+		font-size: 80px;
+	}
+
+	#brand-description {
+		font-size: 24px;
+	}
+
+	.testimony-div {
+		padding: 10%;
+	}
+}

@@ -1,0 +1,38 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block link %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/testimony_style.css' %}">
+{% endblock %}
+
+{% block title %}Testimony{% endblock %}
+
+{% block body %}
+	{% include 'base/navbar.html' %}
+	
+	<div class="content-div">
+		<h1 class="section-title text-center">TESTIMONY</h1>
+		
+		<!--button refresh-->
+		
+		<div class="testimony_list">
+			{% for testimony in testimony reversed %}
+			<div class="testimony-div bg-light">
+				<div class="d-flex justify-content-start">
+					<div class="testimony-detail">
+						<p class="testimony-title">{{ testimony.title }}</p>
+						<p class="testimony-time">by <span class="testimony-author">{{ testimony.username }}</span></p>
+					</div>
+				</div>
+
+				<div class="testimony-content">
+					{{ testimony.content }}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+
+	{% include 'base/footer.html' %}
+{% endblock %}

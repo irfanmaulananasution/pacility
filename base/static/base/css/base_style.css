@@ -3,7 +3,7 @@
 }
 
 .navbar-nav {
-	padding: 0 0.5rem;
+	padding: 0.25rem 0.5rem;
 }
 
 .navbar-brand {
@@ -24,13 +24,15 @@
 }
 
 .navbar-custom .navbar-nav .nav-link {
-    color: #FFFFFF;
+    color: #B6B7D4;
     font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
 }
 
 .navbar-custom .navbar-nav .nav-link:active,
 .navbar-custom .navbar-nav .nav-link:hover {
-    color: #FBE8A6;
+    color: #FFFFFF;
 }
 
 .navbar-custom .navbar-toggler {
@@ -41,10 +43,92 @@
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='1.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+.navbar-custom .navbar-nav .active {
+	color: #F0F0F0;
+	font-weight: 700;
+}
+
 .nav-link {
 	margin-left: 1.5rem;
 	font-family: "Raleway";
-	font-size: 18px;
+	font-size: 1rem;
+}
+
+.navbar-custom .navbar-nav .btn {
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 40px;
+	width: 100px;
+}
+
+.navbar-custom .navbar-nav .btn-outline-secondary {
+	border-color: #FAB76E;
+	color: #FAB76E;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+.navbar-custom .navbar-nav .btn-outline-secondary:hover {
+	background-color: #FAB76E;
+	color: #303C6C;
+}
+
+.nav-link a .btn {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.nav-item.nav-link.nav-button {
+	padding: 0px;
+}
+
+.modal-sm {
+	max-width: 400px;
+}
+
+.modal-header {
+	background-color: #DADADA;
+	border-bottom: 1px solid #C4C4C4;
+}
+
+.modal-body {
+	margin: 10px;
+}
+
+.modal-title {
+	width: 100%;
+	text-align: center;
+}
+
+.alert {
+	display: none;
+}
+
+.modal input[type=text],
+.modal input[type=password],
+.modal input[type=email] {
+	border: 1px solid #CED4DA;
+}
+
+.modal input {
+	border-radius: 0.25rem;
+}
+
+.modal .btn-success {
+	background-color: #303C6C;
+	border-style: none;
+}
+
+label {
+	font-weight: 500;
+}
+
+.form-group .btn {
+	width: 100%;
+}
+
+small {
+	text-align: center;
 }
 
 footer {
@@ -95,9 +179,9 @@ footer {
 	margin-bottom: 30px;
 }
 
-@media (max-width: 576px){
+@media (max-width: 720px){
 	.nav-link {
-		margin-left: 0rem;
+		margin-left: 0.5rem;
 	}
 
 	.list-inline-item {
@@ -119,11 +203,7 @@ footer {
 	}
 
 	.section-title {
-		font-size: 28px;
+		font-size: 36px;
 		text-align: center;
 	}
 }
-
-
-
-

@@ -4,3 +4,9 @@ env/
 __pycache__/
 chromedriver.exe
 db.sqlite3
+htmlcov/
+*.DS_Store
+pacility/__pycache__/__init__.cpython-37.pyc
+base/migrations/__pycache__/__init__.cpython-37.pyc
+base/__pycache__/tests.cpython-37.pyc
+base/__pycache__/__init__.cpython-37.pyc

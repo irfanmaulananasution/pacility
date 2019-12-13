@@ -1,6 +1,7 @@
 from django import forms
+from . import models
 
-class ReportForm(forms.Form):
+class ReportForm(forms.ModelForm):
     form_title_attrs = {
         'placeholder' : 'Title',
         'class' : 'form-control',
@@ -28,3 +29,8 @@ class ReportForm(forms.Form):
     time = forms.TimeField(label= '',required=True, localize=True, widget = forms.TimeInput(attrs = time_attrs))
     category = forms.CharField(label= '', max_length = 50, widget = forms.TextInput(attrs = category_attrs))
     description = forms.CharField(label = '', widget = forms.Textarea(attrs = description_attrs))
+
+
+    class Meta:
+        model = models.Report
+        fields = ['form_title', 'location', 'time', 'category', 'description']
