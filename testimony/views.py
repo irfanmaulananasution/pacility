@@ -9,8 +9,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 def testimony(request):
+        #sendJson
+        testimonyJson = serializers.serialize('json', Testimony.objects.all())
+        if request.is_ajax():
+                if request.method == 'POST':
+                       return HttpResponse(testimonyJson, content_type='json')
+                
         form = TestimonyForm(initial={'username' : request.user.username})
-        testimony = Testimony.objects.all()
+        testimony = Testimony.objects.all()        
         if request.user.is_authenticated:
                 return render(request, 'testimonyUser.html', {'form': form, 'testimony': testimony})
         else :
