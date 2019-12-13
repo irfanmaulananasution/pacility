@@ -4,6 +4,7 @@ from django.urls import reverse
 from .forms import AnnouncementForm
 from .models import Announcement
 from datetime import datetime, timedelta
+from django.http.response import JsonResponse
 
 def index(request):
 	context = {
@@ -36,3 +37,8 @@ def add_announcement(request):
 			announcement.save()
 
 	return HttpResponseRedirect(reverse('homepage:index'))
+
+def get_announcements(request):
+	announcements = Announcement.objects.all().values()
+	announcement_dict = {'announcements': list(announcements)}
+	return JsonResponse(announcement_dict, safe=False)
