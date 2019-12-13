@@ -3,6 +3,37 @@
 
 {% block link %}
 <link rel="stylesheet" type="text/css" href="{% static 'report_form/css/form_style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<!-- page functions -->
+<script>
+function statusAlert(){
+    window.location.href = "http://localhost:8000/admin";
+}
+</script>
+{% if user.is_authenticated %}
+<script>
+    $(document).bind('keyup', function(e){   
+    if(e.which==85) {
+      // "u"
+      window.alert("You are logged in as {{user}}.");
+    }   
+});
+</script>
+{% endif %}
+{% if user.is_superuser %}
+<script>
+    $(document).bind('keyup', function(e){
+    if(e.which==85) {
+      // "u"
+      window.alert("You are logged in as an admin. You can change these forms by pressing Change Status button.");
+    }
+});
+</script>
+{% endif %}
+
+
 {% endblock %}
 
 {% block title %}
@@ -15,16 +46,22 @@
 
 <div class="content-div">
     <p class="section-title">REPORT DETAILS</p>
-    
+    {% if user.is_authenticated %}
+    <p class="announcement-title">To submit your own report, please go to the Form section on the Navbar.<br><br>
+    To check your user status, press U. </p>
+    {% endif %}
     {% for report in reports reversed %}
     {{report.errors}}
     <div class="announcement-div bg-light">
 		<div class="d-flex justify-content-start">
             <div class="report-content">
-                Title       :{{report.form_title}}<br><br>
-                Location    :{{report.location}}<br><br>
-                Time        :{{report.time}}<br><br>
-                Description :{{report.description}}<br><br>
+                <p style="font-family: Raleway, sans-serif;">Title       :{{report.form_title}}</p>
+                <p style="font-family: Raleway, sans-serif;">Location    :{{report.location}}</p>
+                <p style="font-family: Raleway, sans-serif;">Time        :{{report.time}}</p>
+                <p style="font-family: Raleway, sans-serif;">Description :{{report.description}}</p>
+                {% if user.is_superuser %}
+                <button class="btn-submit" onclick="statusAlert()">Change Status</button>
+                {% endif %}
             </div>
         </div>
     </div>
