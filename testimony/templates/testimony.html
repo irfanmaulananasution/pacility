@@ -3,6 +3,7 @@
 
 {% block link %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/testimony_style.css' %}">
+	<script src="{% static 'js/testimonyJS.js' %}"></script>
 {% endblock %}
 
 {% block title %}Testimony{% endblock %}
@@ -14,7 +15,7 @@
 		<h1 class="section-title text-center">TESTIMONY</h1>
 		
 		<!--button refresh-->
-		
+		<button method="POST" onclick="refresh()" type="button" class="btn btn-primary">Refresh</button>
 		<div class="testimony_list">
 			{% for testimony in testimony reversed %}
 			<div class="testimony-div bg-light">
