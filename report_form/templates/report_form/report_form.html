@@ -13,9 +13,18 @@
 
 {% include 'base/navbar.html' %}
 
+{% if user.is_authenticated %} 
+<style>
+    details summary::-webkit-details-marker {
+        display:none;
+    }
+</style>
 <div class="content-div">
-    <p class="section-title">REPORT FORM</p>
-    <form method="POST" id="report_form-form">
+    <details ontoggle="myFunction()">
+    <summary id="section-title" class="section-title" onmousedown="mouseDown()" onmouseup="mouseUp()" style="list-style: none;">REPORT FORM</summary>
+    <p style= "font-family: Raleway;"> let us know your complaint</p>
+    </details>
+    <form action="{% url 'report_form:add_report_service' %}" method="POST" id="report_form-form">
         {% csrf_token %}
 
         <div class="form-row">
@@ -47,11 +56,64 @@
 
         <div class="form-row">
             <div class="form-group col-sm-12">
-                <input class="form-group btn-submit float-right" type="submit" value="Report">
+                <input class="form-group btn-submit float-right" value="Report" onclick="post_report()" style="width: 7.8%"; style="text-align: center;" >
             </div>
         </div>
     </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script>
+        function mouseDown() {
+            document.getElementById("section-title").style.color = "#F4976C"; 
+            }
+
+        function mouseUp() {
+            document.getElementById("section-title").style.color = "#303C6C";
+            }
+        
+        function myFunction() {
+            }
+            
+        function post_report() {
+            console.log("reportttt")
+            data = {
+                "csrfmiddlewaretoken": '{{ csrf_token }}',
+                "form_title": document.getElementById("id_form_title").value,
+                "location" : document.getElementById("id_location").value,
+                "time": document.getElementById("id_time").value,
+                "category": document.getElementById("id_category").value,
+                "description": document.getElementById("id_description").value
+            }
+            $.ajax({
+                type: "POST",
+                url: "/report_form/report_service/",
+                data: data,
+                success: function( data, textStatus, jQxhr ){
+                    if(!data["message"]) {
+                        alert("EError, please check the fields");
+                    } else {
+                        alert(data["message"]);
+                    }
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    alert("Error, please check the fields");
+                }
+            });
+        }
+    </script>
 </div>
+{% else %}
+   <div class= "row" style="width: 100vw; margin: 0;">
+        <div class="col-md-12 authenReports">
+        <h3 style="text-align: center;"></br></br></br></br></br>YOU HAVE TO LOGIN </br> TO FILL IN THE FORM</h3>
+        </div>
+   </div>
+    {% endif %}
 
 {% include 'base/footer.html' %}
 {% endblock %}
+
+
+

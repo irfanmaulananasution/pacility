@@ -13,6 +13,18 @@
 	font-weight: 500;
 }
 
+.authenReports{
+	width: 100%;
+	height: 92vh;
+	background-color: #FBE8A6;
+	color: #303C6C;
+	font-family: "Raleway";
+	font-size: 500px;
+	font-weight: 800;
+	line-height: 200%;
+	padding: 0;
+}
+
 
 .flex-center {
 	display: flex;
@@ -41,6 +53,10 @@ textarea {
 	border-radius: 1rem;
 	padding: 5px 20px;
 	border-style: none;
+}
+
+h3{
+	font-size: 50px;
 }
 
 .btn-submit:hover,
@@ -133,4 +149,5 @@ textarea {
 	.announcement-div {
 		padding: 10%;
 	}
+
 }
