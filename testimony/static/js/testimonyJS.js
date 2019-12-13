@@ -1,8 +1,15 @@
 $(document).ready(function(){
+<<<<<<< HEAD
+    //searchBook("web programming for babies");
+    //$("#searchbook").change(function(){
+    //    searchBook(document.getElementById("searchbook").value);
+    //});
+=======
     searchBook("web programming for babies");
     $("#searchbook").change(function(){
         searchBook(document.getElementById("searchbook").value);
     });
+>>>>>>> 2a506117ce52f24bbe022021b0238bcc0d847c0d
 });
 
 function searchBook(toSearch) {
@@ -68,4 +75,19 @@ function searchBook(toSearch) {
             ++counter;
         });
     });
+<<<<<<< HEAD
+}
+
+function refresh() {
+	alert("masuk");
+	$.getJSON('{% url \'testimony:testimony\' %}"', function(result){
+		alert("2");
+		var hasil = "";
+		result.items.forEach(value => {
+			hasil = hasil + "/r/n/" + value.volumeInfo.title;
+		});
+		alert(hasil);
+	});
+=======
+>>>>>>> 2a506117ce52f24bbe022021b0238bcc0d847c0d
 }

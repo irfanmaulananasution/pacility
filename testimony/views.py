@@ -7,14 +7,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import models
 from django.contrib.auth.models import User
+from django.core import serializers
+from django.http import JsonResponse
 
 def testimony(request):
         #sendJson
         testimonyJson = serializers.serialize('json', Testimony.objects.all())
         if request.is_ajax():
-                if request.method == 'POST':
-                       return HttpResponse(testimonyJson, content_type='json')
-                
+                return JsonResponse({'testimony' : testimonyJson})
+        
         form = TestimonyForm(initial={'username' : request.user.username})
         testimony = Testimony.objects.all()        
         if request.user.is_authenticated:
