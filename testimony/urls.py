@@ -6,4 +6,5 @@ app_name = 'testimony'
 urlpatterns = [
 	path('', views.testimony, name='testimony'),
 	path('add_testimony/', views.add_testimony, name="add_testimony"),
+	path('getTestimonyJson/', views.getTestimonyJson, name="getTestimonyJson"),
 ]

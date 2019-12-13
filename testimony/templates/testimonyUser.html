@@ -3,7 +3,7 @@
 
 {% block link %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/testimony_style.css' %}">
-	<script src="{% static 'testimony/js/testimonyJS.js' %}"></script>
+	<script src="{% static 'js/testimonyJS.js' %}"></script>
 {% endblock %}
 
 {% block title %}Testimony{% endblock %}
@@ -40,22 +40,8 @@
 		</div>
 
 		<!--button refresh-->
-
-		<div class="testimony_list">
-			{% for testimony in testimony reversed %}
-			<div class="testimony-div bg-light">
-				<div class="d-flex justify-content-start">
-					<div class="testimony-detail">
-						<p class="testimony-title">{{ testimony.title }}</p>
-						<p class="testimony-time">by <span class="testimony-author">{{ testimony.username }}</span></p>
-					</div>
-				</div>
-
-				<div class="testimony-content">
-					{{ testimony.content }}
-				</div>
-			</div>
-			{% endfor %}
+		<button method="POST" onclick="refresh()" type="button" class="btn btn-primary">Refresh</button>
+		<div class="testimony_list"id="testimonyShow">
 		</div>
 	</div>
 
