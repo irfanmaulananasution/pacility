@@ -3,6 +3,7 @@
 
 {% block link %}
 	<link rel="stylesheet" type="text/css" href="{% static 'homepage/home_style.css' %}">
+	<script type="text/javascript" src="{% static 'homepage/homepage.js' %}"></script>
 {% endblock %}
 
 {% block title %}
@@ -21,9 +22,12 @@
 
 	<div class="content-div">
 		<p class="section-title">ANNOUNCEMENTS</p>
-		<form action="{% url 'homepage:add_announcement' %}" method="POST" id="announcement-form">
+
+		{% if user.is_authenticated %}
+		<form action="{% url 'homepage:add_announcement' %}" id="announcement-form">
 			{% csrf_token %}
 
+			<input id="username" type="hidden" value="{{ user.username }}">
 			<div class="form-row">
 				<div class="form-group col-sm-4">
 					{{ form.username }}
@@ -43,24 +47,11 @@
 				</div>
 			</div>		
 		</form>
+		{% endif %}
 
-		{% for announcement in announcements reversed %}
-		<div class="announcement-div bg-light">
-			<div class="d-flex justify-content-start">
-				<div class="initial-profile">
-					{{ announcement.initial }}
-				</div>
-				<div class="announcement-detail">
-					<p class="announcement-title">{{ announcement.title }}</p>
-					<p class="announcement-time">by <span class="announcement-author">{{ announcement.username }}</span> - {{ announcement.date }} at {{ announcement.time }}</p>
-				</div>
-			</div>
-
-			<div class="announcement-content">
-				{{ announcement.content }}
-			</div>
+		<div class="announcement-list">
+		
 		</div>
-		{% endfor %}
 	</div>
 
 

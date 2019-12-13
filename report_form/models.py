@@ -15,8 +15,5 @@ class Report(models.Model):
 
 	    return form_title_valid and location_valid and category_valid and description_valid
 
-	def __str__(self):
-	    return f"{self.time} - {self.form_title}"
-
-
-
+	# def __str__(self):
+	#     return f"{self.time} - {self.form_title}"

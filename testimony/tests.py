@@ -109,10 +109,4 @@ class TestimonyTest(TestCase):
     def test_refresh_button_exist_for_authenticated_user(self):
         c = Client()
         c.login(username='temporary', password='temporary')
-
-        response = c.get('/testimony/')
-        self.assertIn('Refresh</button>', response.content.decode())
         
-    def test_refresh_button_exist_for_not_authenticated_user(self):
-        response = Client().get('/testimony/')
-        self.assertIn('Refresh</button>', response.content.decode())

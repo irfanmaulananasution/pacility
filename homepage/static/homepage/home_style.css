@@ -44,12 +44,6 @@ textarea {
 	border-style: none;
 }
 
-.btn-submit:hover,
-.btn-submit:focus {
-	color: #303C6C;
-	background-color: #F4976C;
-}
-
 .initial-profile {
 	display: inline-block;
 	width: 50px;

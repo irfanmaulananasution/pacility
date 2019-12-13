@@ -1,11 +1,21 @@
 from django.test import TestCase
 from django.urls import resolve
-from .views import index, add_announcement
+from .views import index, add_announcement, get_announcements
 from .models import Announcement
 from .forms import AnnouncementForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 class AnnouncementTestCase(TestCase):
 	def setUp(self):
+		first_name = 'Louise'
+		last_name = 'Banks'
+		username = 'louise.banks'
+		email = 'louisebanks@arrival.com'
+		password = 'linguisticsexpert'
+		new_user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email, password=password)
+		new_user.save()
+
 		username1 = "louise.banks"
 		initial1 = "L"
 		title1 = "Announcement1"
@@ -107,3 +117,22 @@ class AnnouncementTestCase(TestCase):
 
 		self.assertEqual(str(announcement1), f"{announcement1.date} - {announcement1.title}")
 		self.assertEqual(str(announcement2), f"{announcement2.date} - {announcement2.title}")
+
+	def test_url_get_announcements_exists(self):
+		response = self.client.get('/get_announcements')
+		self.assertEqual(response.status_code, 200)
+
+	def test_using_get_announcements_function(self):
+		found = resolve('/get_announcements')
+		self.assertEqual(found.func, get_announcements)
+
+	def test_form_appear_if_user_authenticated(self):
+		self.client.login(username='louise.banks', password='linguisticsexpert')	
+		response = self.client.get("/")
+		html_response = response.content.decode('utf8')
+		self.assertIn('<form action="/add_announcement"', html_response)
+
+	def test_form_not_appear_if_user_not_authenticated(self):
+		response = self.client.get("/")
+		html_response = response.content.decode('utf8')
+		self.assertNotIn('<form action="/add_announcement"', html_response)

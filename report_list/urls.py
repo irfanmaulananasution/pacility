@@ -5,5 +5,5 @@ app_name='report_list'
 
 urlpatterns = [
 	path('', views.report_list, name= 'report_list'),
-	#path('', views.add_report, name= 'add_report_form'),
+	# path('', views.add_report, name= 'add_report_form'),
 ]
