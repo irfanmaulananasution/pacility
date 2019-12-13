@@ -16,9 +16,9 @@ def testimony(request):
         form = TestimonyForm(initial={'username' : request.user.username})
         testimony = Testimony.objects.all()        
         if request.user.is_authenticated:
-                return render(request, 'testimonyUser.html', {'form': form, 'testimony': testimony})
+                return render(request, 'testimonyUser.html', {'form': form })
         else :
-                return render(request, 'testimony.html', {'testimony': testimony})
+                return render(request, 'testimony.html')
         
 def add_testimony(request):
         if request.user.is_authenticated :
