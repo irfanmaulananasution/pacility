@@ -9,7 +9,7 @@
 <!-- page functions -->
 <script>
 function statusAlert(){
-    window.location.href = "http://localhost:8000/admin";
+    window.location.href = "http://pacility.herokuapp.com/admin";
 }
 </script>
 {% if user.is_authenticated %}
@@ -17,7 +17,7 @@ function statusAlert(){
     $(document).bind('keyup', function(e){   
     if(e.which==85) {
       // "u"
-      window.alert("You are logged in as {{user}}.");
+      window.alert("You are logged in as {{user}}.  ");
     }   
 });
 </script>
